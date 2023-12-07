@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
 import {createStore,applyMiddleware} from 'redux'; 
 import { Provider } from 'react-redux';
 import {thunk} from 'redux-thunk';
@@ -11,13 +10,14 @@ import app,{auth} from './utils/firebase';
 import { onAuthStateChanged } from "firebase/auth";
 import{setUser} from './actions/authActionCreator';
 import { ToastProvider } from 'react-toast-notifications';
+import { BrowserRouter as Router ,HashRouter} from 'react-router-dom';
 
 //=====================logger function==============================
 const logger=({dispatch,getState})=>(next)=>(action)=>{
       //middleware code
       console.log("ACTION_TYPE=",action.type);
       next(action);
-    }
+  }
 
 const store=createStore(rootReducer,applyMiddleware(logger,thunk));
 
@@ -34,11 +34,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
       <ToastProvider autoDismiss autoDismissTimeout={5000} placement="top-left">
-        <Router> 
+        <HashRouter basename='/'> 
           <Provider store={store}>
             <App/>
           </Provider>,
-        </Router>
+        </HashRouter>
       </ToastProvider>
   </>
 );

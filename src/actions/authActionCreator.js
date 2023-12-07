@@ -1,7 +1,7 @@
 import {SUCCESS_SIGN_UP,SUCCESS_LOGIN,SUCCESS_LOGOUT,SET_USER} from './actionType';
 
 //action creator Auth
-export function successSignUp(val,msg){
+export function successSignUp(val){
     return{
          type:SUCCESS_SIGN_UP,
          isSignUpSuccess:val,

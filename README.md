@@ -1,3 +1,8 @@
+# Hosting Link
+ https://premnarayanp.github.io/news-pp/
+
+ 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
